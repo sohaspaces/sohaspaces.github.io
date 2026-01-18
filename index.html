@@ -11,6 +11,18 @@
         body {
             font-family: "Garamond Semibold", Garamond, serif;
         }
+        h1 {
+            font-size: clamp(1.65rem, 2vw, 2.35rem);
+        }
+        h2 {
+            font-size: clamp(1.35rem, 1.65vw, 2rem);
+        }
+        h3 {
+            font-size: clamp(1rem, 1.35vw, 1.65rem);
+        }
+        h4 {
+            font-size: clamp(0.88rem, 1.12vw, 1.35rem);
+        }
         p {
             font-size: clamp(0.65rem, 1vw, 1.35rem);
             word-break: keep-all;
@@ -95,16 +107,16 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-3">
-                                            <button id="ko" class="btn btn-success">한국어</button>
+                                            <p><button id="ko" class="btn btn-link text text-light">한국어</button></p>
                                         </div>
                                         <div class="col-3">
-                                            <button id="en" class="btn btn-success">English</button>
+                                            <p><button id="en" class="btn btn-link text text-light">English</button></p>
                                         </div>
                                         <div class="col-3">
-                                            <button id="ja" class="btn btn-success">日本語</button>
+                                            <p><button id="ja" class="btn btn-link text text-light">日本語</button></p>
                                         </div>
                                         <div class="col-3">
-                                            <button id="fr" class="btn btn-success">français</button>
+                                            <p><button id="fr" class="btn btn-link text text-light">français</button></p>
                                         </div>
                                     </div>
                                 </div>
