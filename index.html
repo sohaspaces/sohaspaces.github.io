@@ -223,9 +223,13 @@
             document.getElementById(x).addEventListener('click', (e) => {
                 e.preventDefault();
                 applyLanguage(x);
+                window.localStorage.setItem('lang', x);
             });
         });
-        applyLanguage('ko');
+        if (window.localStorage.getItem('lang') === null) {
+            window.localStorage.setItem('lang', 'ko');
+        }
+        applyLanguage(window.localStorage.getItem('lang'));
     </script>
 </body>
 </html>
