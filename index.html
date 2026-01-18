@@ -128,7 +128,13 @@
         </div>
     </div>
     <script>
-        const age = new Date(Date.now() - new Date(2006, 9, 14).getTime());
+        const now = new Date();
+        const years = now.getFullYear() - 2006;
+        const months = now.getMonth() - 9;
+        if (months < 0) {
+            months += 12;
+            years -= 1;
+        }
         const languages = ['ko', 'en', 'ja', 'fr'];
         const texts = ['name', 'summary', 'titleAge', 'age', 'titleGender', 'gender', 'titleLocation', 'location', 'titleOrientation', 'orientation', 'titleKink', 'kink', 'titleStatus', 'status', 'connection', 'language', 'titleInterest', 'interest'];
         const translation = {
@@ -136,7 +142,7 @@
                 'name': '소하',
                 'summary': '정보',
                 'titleAge': '나이',
-                'age': `${age.getFullYear() - 1970}년 ${age.getMonth()}개월 ${age.getDate()}일`,
+                'age': `${years}년 ${months}개월`,
                 'titleGender': '성별',
                 'gender': '여성',
                 'titleLocation': '위치',
@@ -156,7 +162,7 @@
                 'name': 'Soha',
                 'summary': 'Information',
                 'titleAge': 'Age',
-                'age': `${age.getFullYear() - 1970}_years, ${age.getMonth()}_month${age.getMonth() > 1 ? 's' : ''}, and ${age.getDate()}_day${age.getDate() > 1 ? 's' : ''} old`,
+                'age': `${years} years and ${months} month${months > 1 ? 's' : ''} old`,
                 'titleGender': 'Gender',
                 'gender': 'female',
                 'titleLocation': 'Location',
@@ -176,15 +182,15 @@
                 'name': `<ruby>素河<rt>もとかわ</rt></ruby>`,
                 'summary': '情報',
                 'titleAge': '年齢',
-                'age': `${age.getFullYear() - 1970}年 ${age.getMonth()}ヶ月 ${age.getDate()}日`,
+                'age': `${years - 1970}年 ${months}ヶ月`,
                 'titleGender': '性別',
                 'gender': '女',
                 'titleLocation': '場所',
-                'location': '大韓民国ソウル特別視<ruby>衿川区<rt>クムチョング</rt></ruby>',
+                'location': '韓国ソウル市<ruby>衿川区<rt>クムチョング</rt></ruby>',
                 'titleOrientation': '性的指向',
                 'orientation': '両性愛',
                 'titleKink': '嗜好',
-                'kink': '男性に対しては受けで 以外はノーマル',
+                'kink': '男性に対しては受けで以外はノーマル',
                 'titleStatus': '関係',
                 'status': 'フリー',
                 'connection': 'アカウント',
@@ -196,7 +202,7 @@
                 'name': ` Soha`,
                 'summary': 'Informations',
                 'titleAge': 'Âge',
-                'age': `${age.getFullYear() - 1970}_ans ${age.getMonth()}_mois ${age.getDate()}_jour${age.getDate() > 1 ? 's' : ''}`,
+                'age': `${years - 1970}_ans et ${months}_mois`,
                 'titleGender': 'Genre',
                 'gender': 'femelle',
                 'titleLocation': 'Lieu',
