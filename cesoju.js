@@ -211,8 +211,9 @@ document.querySelectorAll('.cesoju').forEach((canvas) => {
         return facing.bridge(ix, iy);
     }
     canvas.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX - context.canvas.offsetLeft;
-        mouseY = e.clientY - context.canvas.offsetTop;
+        const rectangle = canvas.getBoundingClientRect();
+        mouseX = e.clientX - rectangle.left;
+        mouseY = e.clientY - rectangle.top;
         const bridge = interpretCoords();
         document.body.style.cursor = bridge !== undefined && cesoju.estimate(bridge) ? 'crosshair' : 'default';
     });
