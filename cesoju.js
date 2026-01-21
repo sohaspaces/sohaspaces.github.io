@@ -177,11 +177,11 @@ document.querySelectorAll('.cesoju').forEach((canvas) => {
             const winner = nextTurn(cesoju.turn);
             context.font = "bold 48px serif";
             context.fillStyle = winner.color;
-            context.fillText(`${winner.name}`, 0.5 * size, 0.5 * size);
+            context.fillText(`${winner.name}`, 0.5 * (size + 0.01), 0.5 * (size + 0.01));
         } else {
             context.font = "16px serif";
             context.fillStyle = cesoju.turn.color;
-            context.fillText(`${cesoju.turn.name}`, 0.5 * size, 0.5 * size);
+            context.fillText(`${cesoju.turn.name}`, 0.5 * (size + 0.01), 0.5 * (size + 0.01));
         }
     }
     draw();
