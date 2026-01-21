@@ -41,8 +41,11 @@ const nodes = (bridge) => bridge < 20 ?
     [{ x: bridge & 3, y: bridge >> 2 }, { x: (bridge & 3) + 1, y: bridge >> 2 }] :
     [{ x: (bridge - 20) >> 2, y: bridge & 3 }, { x: (bridge - 20) >> 2, y: (bridge & 3) + 1 }];
 
-const Cesoju = function() {
-    this.init = function() {
+class Cesoju {
+    constructor() {
+        this.init();
+    }
+    init() {
         this.web = Array(40).fill(Player.none);
         this.turn = Player.slu;
         this.phase = Phase.opening;
@@ -51,11 +54,11 @@ const Cesoju = function() {
             'DAC': false,
         };
     }
-    this.browse = function(x, y) {
+    browse(x, y) {
         const result = {
             count: 0,
             owner: Player.none,
-        }
+        };
         if (this.phase === Phase.opening) {
             if (x === 0 && y === 4) {
                 result.owner = Player.slu;
@@ -78,8 +81,8 @@ const Cesoju = function() {
         });
         return result;
     }
-    this.estimate = function(bridge) {
-        if (this.web[bridge] !== Player.none || 
+    estimate(bridge) {
+        if (this.web[bridge] !== Player.none ||
             this.phase === Phase.opening && openingBan[bridge]) {
             return false;
         }
@@ -101,9 +104,9 @@ const Cesoju = function() {
         }
         return false;
     }
-    this.build = function(bridge) {
+    build(bridge) {
         nodes(bridge).forEach((node) => {
-            result = this.browse(node.x, node.y);
+            const result = this.browse(node.x, node.y);
             if (result.owner !== this.turn) {
                 this.web[bridge] = this.turn;
                 if (result.owner === nextTurn(this.turn)) {
@@ -117,14 +120,13 @@ const Cesoju = function() {
             }
         });
     }
-    this.swap = function() {
+    swap() {
         this.turn = nextTurn(this.turn);
         this.lock[this.turn.name] = false;
         if (this.web.find((_, i) => this.estimate(i)) === undefined) {
             this.phase = Phase.over;
         }
     }
-    this.init();
 }
 
 const size = Math.min(window.innerWidth, window.innerHeight) * 0.8;
